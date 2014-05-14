@@ -81,13 +81,33 @@ Linux ubuntu-14 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x8
 
 ```
 # -- YOUR ANSWER TO QUESTION 3 --
-
+vagrant@ubuntu-14:~$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED
+VIRTUAL SIZE
+heig/app-nodejs     latest              05ecb36202be        9 minutes ago
+608.7 MB
+heig/web-apache     latest              00c7c2b7852e        12 minutes ago
+622.6 MB
+heig/rp-nginx       latest              2115a9e09082        16 minutes ago
+956.3 MB
+dockerfile/ubuntu   latest              887afc884c07        3 hours ago
+584.2 MB
 # -------------------------------
 ```
 
 ```
 # -- YOUR ANSWER TO QUESTION 4 --
-
+vagrant@ubuntu-14:~$ docker ps
+CONTAINER ID        IMAGE                    COMMAND                CREATED
+        STATUS              PORTS                  NAMES
+0209034d4cfb        heig/app-nodejs:latest   node /opt/server.js    11 minutes a
+go      Up 11 minutes       0.0.0.0:7070->80/tcp   app-node
+e853c7abfc27        heig/web-apache:latest   /usr/sbin/apache2ctl   11 minutes a
+go      Up 11 minutes       0.0.0.0:8082->80/tcp   web-node-2
+9c03ee2f5760        heig/web-apache:latest   /usr/sbin/apache2ctl   11 minutes a
+go      Up 11 minutes       0.0.0.0:8081->80/tcp   web-node-1
+6553e040e8d8        heig/rp-nginx:latest     /opt/init.sh           11 minutes a
+go      Up 11 minutes       0.0.0.0:9090->80/tcp   rp-node
 # -------------------------------
 ```
 
