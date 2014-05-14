@@ -235,10 +235,28 @@ Switzerland
 # -- YOUR ANSWER TO QUESTION 8 --
 
 Which command did you type on the terminal to establish the connection?
+telnet 192.168.33.1 8080
 
 What HTTP request did you type and send?
+GET /ajax/resources/nodes HTTP/1.1
+Host: www.monsys.com
 
 What HTTP response did you get?
+
+HTTP/1.1 200 OK
+Server: nginx/1.6.0
+Date: Wed, 14 May 2014 20:27:50 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+fa
+[{"name":"P-001","description":"Epson Printer","currentLoadLevel":75.20957826636
+732},{"name":"P-002","description":"Canon Printer","currentLoadLevel":65.9741254
+5233965},{"name":"P-003","description":"HP Printer","currentLoadLevel":38.016505
+30658662}]
+0
+
 # -------------------------------
 ```
 
