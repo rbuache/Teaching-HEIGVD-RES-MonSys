@@ -15,12 +15,67 @@ we have followed.
 ```
 # -- YOUR ANSWER TO QUESTION 1 --
 
+b-infra> vagrant up
+inging machine 'default' up with 'virtualbox' provider...
+> default: Clearing any previously set forwarded ports...
+> default: Clearing any previously set network interfaces...
+> default: Preparing network interfaces based on configuration...
+  default: Adapter 1: nat
+  default: Adapter 2: hostonly
+> default: Forwarding ports...
+  default: 9090 => 8080 (adapter 1)
+  default: 22 => 2222 (adapter 1)
+> default: Booting VM...
+> default: Waiting for machine to boot. This may take a few minutes...
+  default: SSH address: 127.0.0.1:2222
+  default: SSH username: vagrant
+  default: SSH auth method: private key
+  default: Warning: Connection timeout. Retrying...
+> default: Machine booted and ready!
+> default: Checking for guest additions in VM...
+> default: Configuring and enabling network interfaces...
+> default: Mounting shared folders...
+  default: /vagrant => C:/Users/Raphael/Documents/HEIG-VD/RES/GIT/Teaching-HEI
+D-RES-Monsys/monsys-web-infra
+> default: Machine already provisioned. Run `vagrant provision` or use the `--
+ovision`
+> default: to force provisioning. Provisioners marked to run always will still
+un.
+ C:\Users\Raphael\Documents\HEIG-VD\RES\GIT\Teaching-HEIGVD-RES-Monsys\monsys-
+b-infra> vagrant provision
+> default: Running provisioner: shell...
+  default: Running: inline script
+> default: stdin: is not a tty
+> default: Cleaning up Docker containers...
+> default: /tmp/vagrant-shell: line 2: docker: command not found
+> default: /tmp/vagrant-shell: line 3: docker: command not found
+> default: /tmp/vagrant-shell: line 4: docker: command not found
+> default: /tmp/vagrant-shell: line 5: docker: command not found
+> default: /tmp/vagrant-shell: line 6: docker: command not found
+> default: /tmp/vagrant-shell: line 7: docker: command not found
+> default: /tmp/vagrant-shell: line 8: docker: command not found
+> default: /tmp/vagrant-shell: line 9: docker: command not found
+> default: Running provisioner: docker...
+  default: Installing Docker (latest) onto machine...
+  default: Configuring Docker to autostart containers...
+> default: Building Docker images...
+> default: -- Path: /vagrant/docker/rp-nginx
+> default: -- Path: /vagrant/docker/web-apache
+> default: -- Path: /vagrant/docker/app-nodejs
+> default: Starting Docker containers...
+> default: -- Container: rp-node
+> default: -- Container: web-node-1
+> default: -- Container: web-node-2
+> default: -- Container: app-node
+
 # -------------------------------
 ```
 
 ```
 # -- YOUR ANSWER TO QUESTION 2 --
-
+vagrant@ubuntu-14:~$ uname -a
+Linux ubuntu-14 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x8
+6_64 x86_64 x86_64 GNU/Linux
 # -------------------------------
 ```
 
