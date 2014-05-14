@@ -113,7 +113,10 @@ go      Up 11 minutes       0.0.0.0:9090->80/tcp   rp-node
 
 ```
 # -- YOUR ANSWER TO QUESTION 5 --
-
+app-node -> IPAddress: 172.17.0.5 , IPPrefixLen : 16 , Gateway : 172.17.0.5, HostPort : 7070
+web-node-2 -> IPAddress: 172.17.0.4 , IPPrefixLen : 16 , Gateway : 172.17.42.1, HostPort : 8082
+web-node-1 -> IPAddress: 172.17.0.3 , IPPrefixLen : 16 , Gateway : 172.17.42.1, HostPort : 8081
+rp-node -> IPAddress: 172.17.0.2 , IPPrefixLen : 16 , Gateway : 172.17.42.1, HostPort : 9090
 # -------------------------------
 ```
 
