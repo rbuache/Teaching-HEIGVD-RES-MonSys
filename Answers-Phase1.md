@@ -446,6 +446,9 @@ Connection closed by foreign host.
 
 What procedure did you follow to validate the configuration of 
 your complete infrastructure?
+-Controle que les containers sont actifs
+-Accès au serveur web via un navigateur sur l'hôte
+-Requete http avec telnet depuis l'hôte
 
 Provide details and evidence (command results, etc.) that your 
 setup is correct.
@@ -453,7 +456,7 @@ setup is correct.
 Troubleshooting...
 -Oublié de modifier le nom du fichier en index.html
 -accès au serveur web que par le port 9090 depuis le host : modification en 80
-
+-Run powershell as administrator for forward port 80 in vagrant
 # -------------------------------
 ```
 
