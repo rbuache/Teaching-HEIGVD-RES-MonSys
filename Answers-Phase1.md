@@ -396,47 +396,90 @@ vagrant@ubuntu-14:~$ docker inspect clash-node-1
     }
 }]
 
-vagrant@ubuntu-14:~$ telnet 172.17.0.6 80
-Trying 172.17.0.6...
-Connected to 172.17.0.6.
+vagrant@ubuntu-14:~$ telnet 0.0.0.0 8881
+Trying 0.0.0.0...
+Connected to 0.0.0.0.
 Escape character is '^]'.
 GET / HTTP/1.1
 Host: live.clashofclasses.ch
 
 HTTP/1.1 200 OK
-Date: Thu, 15 May 2014 13:27:21 GMT
+Date: Thu, 15 May 2014 17:29:02 GMT
 Server: Apache/2.4.7 (Ubuntu)
+Last-Modified: Thu, 15 May 2014 12:53:55 GMT
+ETag: "80a-4f96fca25bec0"
+Accept-Ranges: bytes
+Content-Length: 2058
 Vary: Accept-Encoding
-Content-Length: 1161
-Content-Type: text/html;charset=UTF-8
+Content-Type: text/html
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
-<html>
- <head>
-  <title>Index of /</title>
- </head>
- <body>
-<h1>Index of /</h1>
-  <table>
-   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href
-="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a hre
-f="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
-   <tr><th colspan="5"><hr></th></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="
-css/">css/</a></td><td align="right">2014-05-15 13:17  </td><td align="right">
-- </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="li
-ve-index.html">live-index.html</a></td><td align="right">2014-05-15 12:53  </td>
-<td align="right">2.0K</td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="
-success.jpg">success.jpg</a></td><td align="right">2014-05-15 12:53  </td><td al
-ign="right"> 70K</td><td>&nbsp;</td></tr>
-   <tr><th colspan="5"><hr></th></tr>
-</table>
-<address>Apache/2.4.7 (Ubuntu) Server at live.clashofclasses.ch Port 80</address
->
-</body></html>
-Connection closed by foreign host.
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-a
+wesome.css" rel="stylesheet">
+    <title>Sticky Footer Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/live-bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/sticky-footer.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js
+"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queri
+es -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></s
+cript>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js">
+</script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1>Welcome To Clash of Classes!</h1>
+      </div>
+      <p class="lead">This is the Welcome Page for the <b>live</b> section of th
+e website, which is accessible at this URL <a href="http://live.clashofclasses.c
+h">http://live.clashofclasses.ch</a>.</p>
+      <p class="lead">You can jump to the <b>dashboard</b> section of the websit
+e <a href="http://dashboard.clashofclasses.ch">here</a>.</p>
+
+        <p></p>
+                <img src="success.jpg" width="300">
+        <p></p>
+
+
+    </div>
+
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">We <i class="fa fa-heart"></i> Application Level P
+rotocols</p>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
+
 
 # -------------------------------
 ```
