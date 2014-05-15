@@ -20,9 +20,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	# Create a forwarded port mapping which allows access to a specific port
 	# within the machine from a port on the host machine. In the example below,
 	# accessing "localhost:8080" will access port 80 on the guest machine.
-	config.vm.network "forwarded_port", guest: 9090, host: 8080
-	
-
+	# config.vm.network "forwarded_port", guest: 9090, host: 8080
+	# config.vm.network "forwarded_port", guest: 9090, host: 8014
+	# config.vm.network "forwarded_port", guest: 8014, host: 8014
     # ==============================================================================
     # Provisioning - what do we when we want to set the box in its intial state?
     # ==============================================================================
@@ -76,7 +76,7 @@ SCRIPT
 	    # mapping: if a client tries to open a TCP connection on the IP of the box and on the 
 	    # specified port, it will get a connection to the container on port 80
 
-		d.run "rp-node", image: "heig/rp-nginx", args: "-p 9090:80"
+		d.run "rp-node", image: "heig/rp-nginx", args: "-p 80:80"
 
 
         # Same thing for the web server image, from which we run 2 containers. Same thing
