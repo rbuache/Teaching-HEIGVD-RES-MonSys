@@ -453,10 +453,121 @@ your complete infrastructure?
 Provide details and evidence (command results, etc.) that your 
 setup is correct.
 
+vagrant@ubuntu-14:~$ docker ps
+CONTAINER ID        IMAGE                    COMMAND                CREATED
+        STATUS              PORTS                  NAMES
+8ef5e91e5ca3        heig/web-clash:latest    /usr/sbin/apache2ctl   3 minutes ag
+o       Up 3 minutes        0.0.0.0:8883->80/tcp   clash-node-3
+e84799cc50f1        heig/web-clash:latest    /usr/sbin/apache2ctl   3 minutes ag
+o       Up 3 minutes        0.0.0.0:8882->80/tcp   clash-node-2
+e6ab89b5e40f        heig/web-clash:latest    /usr/sbin/apache2ctl   3 minutes ag
+o       Up 3 minutes        0.0.0.0:8881->80/tcp   clash-node-1
+a25e2e807ea3        heig/app-nodejs:latest   node /opt/server.js    3 minutes ag
+o       Up 3 minutes        0.0.0.0:7070->80/tcp   app-node
+6391dafe1d53        heig/web-apache:latest   /usr/sbin/apache2ctl   3 minutes ag
+o       Up 3 minutes        0.0.0.0:8082->80/tcp   web-node-2
+63d3089a01a5        heig/web-apache:latest   /usr/sbin/apache2ctl   3 minutes ag
+o       Up 3 minutes        0.0.0.0:8081->80/tcp   web-node-1
+c965e8ad2629        heig/rp-nginx:latest     /opt/init.sh           3 minutes ag
+o       Up 3 minutes        0.0.0.0:80->80/tcp     rp-node
+
+C:\Users\Raphael>telnet 192.168.33.20 80
+Trying 192.168.33.20...
+Connected to 192.168.33.20.
+Escape character is '^]'.
+GET / HTTP/1.1
+Host: live.clashofclasses.ch
+
+HTTP/1.1 200 OK
+Server: nginx/1.6.0
+Date: Thu, 15 May 2014 17:23:14 GMT
+Content-Type: text/html
+Content-Length: 2058
+Connection: keep-alive
+Last-Modified: Thu, 15 May 2014 12:53:55 GMT
+ETag: "80a-4f96fca25bec0"
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-a
+wesome.css" rel="stylesheet">
+    <title>Sticky Footer Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/live-bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/sticky-footer.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js
+"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queri
+es -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></s
+cript>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js">
+</script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1>Welcome To Clash of Classes!</h1>
+      </div>
+      <p class="lead">This is the Welcome Page for the <b>live</b> section of th
+e website, which is accessible at this URL <a href="http://live.clashofclasses.c
+h">http://live.clashofclasses.ch</a>.</p>
+      <p class="lead">You can jump to the <b>dashboard</b> section of the websit
+e <a href="http://dashboard.clashofclasses.ch">here</a>.</p>
+
+        <p></p>
+                <img src="success.jpg" width="300">
+        <p></p>
+
+
+    </div>
+
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">We <i class="fa fa-heart"></i> Application Level P
+rotocols</p>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
+Connection closed by foreign host.
+
 Troubleshooting...
 -Oublié de modifier le nom du fichier en index.html
--accès au serveur web que par le port 9090 depuis le host : modification en 80
--Run powershell as administrator for forward port 80 in vagrant
+-accès au serveur web que par le port 9090 depuis le host : modification en 80 sur le reverse proxy
+-Problème de containers... -> vagrant destroy -> vagrant up
+
+Config fichier hosts :
+
+192.168.33.20       www.monsys.com
+192.168.33.20	   dashboard.clashofclasses.ch
+192.168.33.20	   live.clashofclasses.ch
+
 # -------------------------------
 ```
 
