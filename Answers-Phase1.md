@@ -265,9 +265,179 @@ fa
 
 What procedure did you follow to validate the configuration of 
 your new web nodes? 
+-Controle que les noeuds sont actifs dans la machine virtuel
+-Récupere l'IP d'un noeud
+-Accédé un serveur via telnet
 
 Provide details and evidence (command results, etc.) that your 
 setup is correct.
+
+vagrant@ubuntu-14:~$ docker ps
+CONTAINER ID        IMAGE                    COMMAND                CREATED
+         STATUS              PORTS                  NAMES
+91ab143176f8        heig/web-clash:latest    /usr/sbin/apache2ctl   About a minu
+te ago   Up About a minute   0.0.0.0:8883->80/tcp   clash-node-3
+34d39223717b        heig/web-clash:latest    /usr/sbin/apache2ctl   About a minu
+te ago   Up About a minute   0.0.0.0:8882->80/tcp   clash-node-2
+b7f141201a80        heig/web-clash:latest    /usr/sbin/apache2ctl   About a minu
+te ago   Up About a minute   0.0.0.0:8881->80/tcp   clash-node-1
+ea30d3b28ef3        heig/app-nodejs:latest   node /opt/server.js    About a minu
+te ago   Up About a minute   0.0.0.0:7070->80/tcp   app-node
+1f4912dd4cbc        heig/web-apache:latest   /usr/sbin/apache2ctl   About a minu
+te ago   Up About a minute   0.0.0.0:8082->80/tcp   web-node-2
+7f388cab4a75        heig/web-apache:latest   /usr/sbin/apache2ctl   About a minu
+te ago   Up About a minute   0.0.0.0:8081->80/tcp   web-node-1
+81d5f9da2e88        heig/rp-nginx:latest     /opt/init.sh           About a minu
+te ago   Up About a minute   0.0.0.0:9090->80/tcp   rp-node
+
+vagrant@ubuntu-14:~$ docker inspect clash-node-1
+[{
+    "ID": "b7f141201a802134831d7740081ff05f7e78613796ba445abcf36a481a3a73ad",
+    "Created": "2014-05-15T13:24:15.439954669Z",
+    "Path": "/usr/sbin/apache2ctl",
+    "Args": [
+        "-D",
+        "FOREGROUND"
+    ],
+    "Config": {
+        "Hostname": "b7f141201a80",
+        "Domainname": "",
+        "User": "",
+        "Memory": 0,
+        "MemorySwap": 0,
+        "CpuShares": 0,
+        "AttachStdin": false,
+        "AttachStdout": false,
+        "AttachStderr": false,
+        "PortSpecs": null,
+        "ExposedPorts": {
+            "80/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+            "HOME=/root",
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+
+            "APACHE_RUN_USER=www-data",
+            "APACHE_RUN_GROUP=www-data",
+            "APACHE_LOG_DIR=/var/log/apache2"
+        ],
+        "Cmd": [
+            "-D",
+            "FOREGROUND"
+        ],
+        "Image": "heig/web-clash",
+        "Volumes": null,
+        "WorkingDir": "/root",
+        "Entrypoint": [
+            "/usr/sbin/apache2ctl"
+        ],
+        "NetworkDisabled": false,
+        "OnBuild": null
+    },
+    "State": {
+        "Running": true,
+        "Pid": 10613,
+        "ExitCode": 0,
+        "StartedAt": "2014-05-15T13:24:15.568849442Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "Image": "29bcb920cba36ec1a672ca469ceb52caa2511e86ff528b3263354c6c0cd171f2",
+
+    "NetworkSettings": {
+        "IPAddress": "172.17.0.6",
+        "IPPrefixLen": 16,
+        "Gateway": "172.17.42.1",
+        "Bridge": "docker0",
+        "PortMapping": null,
+        "Ports": {
+            "80/tcp": [
+                {
+                    "HostIp": "0.0.0.0",
+                    "HostPort": "8881"
+                }
+            ]
+        }
+    },
+    "ResolvConfPath": "/etc/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/b7f141201a802134831d7740081ff05f
+7e78613796ba445abcf36a481a3a73ad/hostname",
+    "HostsPath": "/var/lib/docker/containers/b7f141201a802134831d7740081ff05f7e7
+8613796ba445abcf36a481a3a73ad/hosts",
+    "Name": "/clash-node-1",
+    "Driver": "aufs",
+    "ExecDriver": "native-0.2",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "Volumes": {},
+    "VolumesRW": {},
+    "HostConfig": {
+        "Binds": null,
+        "ContainerIDFile": "/var/lib/vagrant/cids/0f3ab08f14ba52c518d66319a25bcb
+6acf9b2401",
+        "LxcConf": [],
+        "Privileged": false,
+        "PortBindings": {
+            "80/tcp": [
+                {
+                    "HostIp": "0.0.0.0",
+                    "HostPort": "8881"
+                }
+            ]
+        },
+        "Links": null,
+        "PublishAllPorts": false,
+        "Dns": null,
+        "DnsSearch": null,
+        "VolumesFrom": null,
+        "NetworkMode": "bridge"
+    }
+}]
+
+vagrant@ubuntu-14:~$ telnet 172.17.0.6 80
+Trying 172.17.0.6...
+Connected to 172.17.0.6.
+Escape character is '^]'.
+GET / HTTP/1.1
+Host: live.clashofclasses.ch
+
+HTTP/1.1 200 OK
+Date: Thu, 15 May 2014 13:27:21 GMT
+Server: Apache/2.4.7 (Ubuntu)
+Vary: Accept-Encoding
+Content-Length: 1161
+Content-Type: text/html;charset=UTF-8
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /</title>
+ </head>
+ <body>
+<h1>Index of /</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href
+="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a hre
+f="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="
+css/">css/</a></td><td align="right">2014-05-15 13:17  </td><td align="right">
+- </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="li
+ve-index.html">live-index.html</a></td><td align="right">2014-05-15 12:53  </td>
+<td align="right">2.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="
+success.jpg">success.jpg</a></td><td align="right">2014-05-15 12:53  </td><td al
+ign="right"> 70K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.7 (Ubuntu) Server at live.clashofclasses.ch Port 80</address
+>
+</body></html>
+Connection closed by foreign host.
+
 # -------------------------------
 ```
 
