@@ -124,11 +124,11 @@ rp-node -> IPAddress: 172.17.0.2 , IPPrefixLen : 16 , Gateway : 172.17.42.1, Hos
 # -- YOUR ANSWER TO QUESTION 6 --
 
 Host (your laptop):
-- IP address: 192.168.33.1
+- IP address: 10.192.85.144 (wifi heig)
 
 Virtual Machine run by Virtual Box
-- IP address: 192.168.33.20
-- PAT: packets arriving on 192.168.33.1:8080 are forwarded to 192.168.33.20:9090
+- IP address: 192.168.33.1 (gateway to virtual machine)
+- PAT: packets arriving on 192.168.33.20:8080 are forwarded to 172.17.42.1:9090
 
 Docker Bridge
 - IP address: 172.17.42.1
