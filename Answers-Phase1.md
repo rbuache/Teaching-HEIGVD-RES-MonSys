@@ -450,6 +450,10 @@ your complete infrastructure?
 Provide details and evidence (command results, etc.) that your 
 setup is correct.
 
+Troubleshooting...
+-Oublié de modifier le nom du fichier en index.html
+-accès au serveur web que par le port 9090 depuis le host : modification en 80
+
 # -------------------------------
 ```
 
